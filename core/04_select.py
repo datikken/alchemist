@@ -2,7 +2,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 from shared.engine import engine
 from shared.tables import user_table
-from shared.tables import address_table
+# from shared.tables import address_table
 from shared.models import User
 from shared.models import Address
 
@@ -22,10 +22,10 @@ with Session(engine) as session:
 # Return sql expression
 # print(select(User))
 
-
 with Session(engine) as session:
     row = session.execute(select(User)).first()
-    print(row)
+    pass
+    # print(row)
 
 users_with_adresses = session.execute(
     select(User.name, Address).where(User.id == Address.user_id).order_by(Address.id)
