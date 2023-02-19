@@ -1,9 +1,7 @@
 from sqlalchemy import text
-from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
+from shared.engine import engine
 
-
-engine = create_engine("sqlite+pysqlite:///:memory:", echo=True)
 
 with engine.connect() as conn:
     conn.execute(text('CREATE TABLE some_table (x CHAR(20), y CHAR(20))'))

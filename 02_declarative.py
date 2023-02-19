@@ -5,10 +5,7 @@ from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import String, ForeignKey
-from sqlalchemy import create_engine
-
-
-engine = create_engine("sqlite+pysqlite:///:memory:", echo=True)
+from shared.engine import engine
 
 
 class Base(DeclarativeBase):

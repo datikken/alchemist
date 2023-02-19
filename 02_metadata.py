@@ -1,10 +1,8 @@
 from sqlalchemy import MetaData
 from sqlalchemy import Table, Column, Integer, String
 from sqlalchemy import ForeignKey
-from sqlalchemy import create_engine
+from shared.engine import engine
 
-
-engine = create_engine("sqlite+pysqlite:///:memory:", echo=True)
 
 metadata_obj = MetaData()
 
