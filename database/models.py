@@ -2,17 +2,10 @@ from typing import List
 from typing import Optional
 from sqlalchemy import ForeignKey
 from sqlalchemy import String
-from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
-from sqlalchemy import create_engine
-
-engine = create_engine("sqlite:///orm/database.sqlite", echo=True)
-
-
-class Base(DeclarativeBase):
-    pass
+from database.config import Base
 
 
 class User(Base):
@@ -37,6 +30,3 @@ class Address(Base):
 
     def __repr__(self) -> str:
         return f"Address(id={self.id!r}, email_address={self.email_address!r})"
-
-
-Base.metadata.create_all(engine)

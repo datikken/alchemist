@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from definitions import engine
-from definitions import User, Address
+from database.config import engine
+from database.models import User, Address
 
 
 with Session(engine) as session:

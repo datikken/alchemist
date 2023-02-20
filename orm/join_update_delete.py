@@ -1,6 +1,6 @@
 from sqlalchemy import select
-from definitions import engine
-from definitions import User, Address
+from database.config import engine
+from database.models import User, Address
 from sqlalchemy.orm import Session
 
 session = Session(engine)
@@ -17,7 +17,7 @@ stmt = (
     select(Address)
     .join(Address.user)
     .where(User.name == "sandy")
-    .where(Address.email_address == "sandy_cheeks@sqlalchemy.org")
+    .where(Address.email_address == "sandy@sqlalchemy.org")
 )
 sandy_address = session.scalars(stmt).one()
 
